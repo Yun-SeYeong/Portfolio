@@ -6,8 +6,8 @@ import PortfolioContext from '../../context/context';
 import Title from '../Title/Title';
 import ProjectImg from '../Image/ProjectImg';
 
-const Projects = () => {
-  const { projects } = useContext(PortfolioContext);
+const Careers = () => {
+  const { careers } = useContext(PortfolioContext);
 
   const [isDesktop, setIsDesktop] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
@@ -23,15 +23,14 @@ const Projects = () => {
   }, []);
 
   return (
-    <section id="projects">
+    <section id="careers">
       <Container>
         <div className="project-wrapper">
-          <Title title="Projects" />
-          {projects.map((project) => {
-            const { title, info, info2, url, repo, img, id } = project;
-
+          <Title title="Careers" className="mb-15" />
+          {careers.map((career) => {
+            const { title, info, info2, url, repo, img, id } = career;
             return (
-              <Row key={id}>
+              <Row key={id} className="mt-5 align-items-center">
                 <Col lg={4} sm={12}>
                   <Fade
                     left={isDesktop}
@@ -49,14 +48,6 @@ const Projects = () => {
                         </p>
                         <p className="mb-4">{info2 || ''}</p>
                       </div>
-                      {/* <a
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="cta-btn cta-btn--hero"
-                        href={url || '#!'}
-                      >
-                        See Live
-                      </a> */}
 
                       {repo && (
                         <a
@@ -116,4 +107,4 @@ const Projects = () => {
   );
 };
 
-export default Projects;
+export default Careers;
